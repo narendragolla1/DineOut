@@ -1,9 +1,12 @@
-import {restaurantList} from '../contants';
+import {restaurantList} from './contants';
 import RestaurantCard from './RestaurantCard'
-
-
-
 const Body=()=>{
-    return <h1>Body</h1>
+    return (
+        <div className='restaurant-list'>
+            {restaurantList.map((restaturant)=>{
+                return <RestaurantCard {...restaturant.info} key={restaturant.info.id}/>
+            })}
+        </div>
+    )
 }
 export default Body;
