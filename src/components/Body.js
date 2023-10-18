@@ -4,19 +4,20 @@ import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer'
 import { Link } from 'react-router-dom';
 
-function filterData(searchText, allRestaurant) {
-   
-    const filterRestaurant = restaurants.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-    );
-    return filterRestaurant;
-  }
+
 
 
 const Body=()=>{
     const[searchText, setSearchText]=useState("");
     const [filteredRestaurants,setFilteredRestaurants]=useState([]);
     const [allRestuarant,setAllResturants]=useState([])
+    function filterData(searchText, allRestuarant) {
+   
+      const filterRestaurant =allRestuarant.filter((restaurant) =>
+      restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+      );
+      return filterRestaurant;
+    }
     const handleChange=(event)=>{
         setSearchText(event.target.value);
     }
@@ -47,7 +48,7 @@ const Body=()=>{
         <div className="search-container">
             <input type="text" className='search-input' placeholder='search' value={searchText} onChange={handleChange} />
             <button onClick={()=>{
-                const data=filterData(searchText,allRestaurant);
+                const data=filterData(searchText,allRestuarant);
                 setFilteredRestaurants(data)
                 }
                 }>Search</button>
