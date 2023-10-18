@@ -1,6 +1,6 @@
-export default function RestaurantCard({name,cuisines,cloudinaryImageId,areaName,costForTwo}){
+export default function RestaurantCard({name,cuisines,cloudinaryImageId,areaName,costForTwo,key}){
     return(
-        <div className="card">
+        <div className="card" >
             <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
           cloudinaryImageId}/>
           <h2>{name}</h2>
